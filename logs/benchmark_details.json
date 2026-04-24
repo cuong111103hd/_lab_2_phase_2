@@ -1,0 +1,280 @@
+[
+    {
+        "scenario_id": 1,
+        "scenario_name": "Recall user name after 6 turns",
+        "turns": [
+            {
+                "user": "Hi, my name is Linh.",
+                "agent_response": "Hi Linh! It's nice to meet you. How can I assist you today?",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: software engineer\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "I like learning about AI.",
+                "agent_response": "That's great to hear, Linh! Since you're an AI Architect, you probably have a solid foundation in the subject. Is there a specific area of AI you're interested in learning more about?",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: software engineer\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "What's your favorite programming language?",
+                "agent_response": "My favorite programming language is Python, which is also your favorite! It's a versatile language, especially popular in AI and machine learning. What do you enjoy most about using Python?",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "I also enjoy playing piano.",
+                "agent_response": "That's wonderful, Linh! Playing the piano can be a great way to express creativity and relax. Do you have a favorite piece or genre you like to play?",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "How is the weather today?",
+                "agent_response": "I'm unable to provide real-time weather information. However, you can check a weather website or app for the latest updates in your area. Is there anything else I can help you with?",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            },
+            {
+                "user": "Do you remember my name?",
+                "agent_response": "Yes, your name is Linh! How can I assist you today?",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 2,
+        "scenario_name": "Allergy conflict update",
+        "turns": [
+            {
+                "user": "I am allergic to cow's milk.",
+                "agent_response": "Got it! I've updated your allergy to cow's milk. If there's anything else you'd like me to know or update, just let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "Oh wait, my mistake, I am allergic to soy, not cow's milk.",
+                "agent_response": "Thank you for the correction! I've updated your allergy to soy. If there's anything else you want to change or add, feel free to let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: cow's milk\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "What am I allergic to?",
+                "agent_response": "You are allergic to soy. If there’s anything else you’d like to update or ask, just let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 3,
+        "scenario_name": "Recall previous debug lesson (Episodic)",
+        "turns": [
+            {
+                "user": "I had a bug with connection refused yesterday. I fixed it by using the docker service name.",
+                "agent_response": "It sounds like you encountered a connection refused issue, which can be frustrating! I'm glad to hear you resolved it by using the correct docker service name. Just to confirm, the docker service name for Redis is 'redis'. If you need help with anything else regarding Docker or Redis, feel free to ask!",
+                "current_profile": "",
+                "retrieved_episodes": [
+                    "{'content': \"Episode 1:\\n  - task: Update allergy information\\n  - outcome: Successfully updated user's allergy to cow's milk\\n  - learnings: User has a specific allergy to cow's milk that needs to be noted.\\nEpisode 2:\\n  - task: Update allergy information\\n  - outcome: User's allergy was corrected from cow's milk to soy.\\n  - learnings: User is allergic to soy.\\nEpisode 3:\\n  - task: Correct allergy information\\n  - outcome: User's allergy was successfully updated from cow's milk to soy.\\n  - learnings: User has a soy allergy.\\nEpisode 4:\\n  - task: Inquire about allergies\\n  - outcome: User confirmed their allergy to soy.\\n  - learnings: User has a known allergy to soy.\\nEpisode 5:\\n  - task: Inquire about allergies\\n  - outcome: User confirmed their allergy to soy.\\n  - learnings: User has an allergy to soy.\\n\"}"
+                ],
+                "semantic_hits": [
+                    "- The docker service name for Redis is 'redis'.\n- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n"
+                ]
+            },
+            {
+                "user": "I need to fix that connection refused bug again. What was the solution?",
+                "agent_response": "The solution to the connection refused issue you faced was to use the correct docker service name. Make sure you're referencing the right service name in your Docker setup to avoid this issue. If you need more specific guidance or help with configuration, just let me know!",
+                "current_profile": "",
+                "retrieved_episodes": [
+                    "{'content': \"Episode 1:\\n  - task: Correct allergy information\\n  - outcome: User's allergy was successfully updated from cow's milk to soy.\\n  - learnings: User has a soy allergy.\\nEpisode 2:\\n  - task: Inquire about allergies\\n  - outcome: User confirmed their allergy to soy.\\n  - learnings: User has a known allergy to soy.\\nEpisode 3:\\n  - task: Inquire about allergies\\n  - outcome: User confirmed their allergy to soy.\\n  - learnings: User has an allergy to soy.\\nEpisode 4:\\n  - task: Resolve a connection refused issue in Docker\\n  - outcome: Successfully fixed the issue by using the correct docker service name.\\n  - learnings: Using the correct docker service name can resolve connection issues.\\nEpisode 5:\\n  - task: Resolve a connection refused issue in Docker\\n  - outcome: Successfully fixed the issue by using the correct docker service name.\\n  - learnings: Using the correct docker service name can resolve connection issues.\\n\"}"
+                ],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 4,
+        "scenario_name": "Retrieve FAQ chunk (Semantic)",
+        "turns": [
+            {
+                "user": "What are the 4 types of memory required for Lab 17?",
+                "agent_response": "The four types of memory required for Lab 17 are Short-term, Long-term, Episodic, and Semantic memory.",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 5,
+        "scenario_name": "Profile update - Favorite language",
+        "turns": [
+            {
+                "user": "My favorite programming language is Python.",
+                "agent_response": "Got it! Your favorite programming language is Python. If you have any specific questions or topics related to Python, feel free to ask!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "Could you write a simple hello world program for me?",
+                "agent_response": "Sure! Here’s a simple \"Hello, World!\" program in Python:\n\n```python\nprint(\"Hello, World!\")\n```\n\nYou can run this code in any Python environment, and it will display \"Hello, World!\" on the screen. Let me know if you need anything else!",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            },
+            {
+                "user": "What is my favorite programming language?",
+                "agent_response": "Your favorite programming language is Python. If you have more questions or need assistance with Python, feel free to ask!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 6,
+        "scenario_name": "Trim/Token budget test",
+        "turns": [
+            {
+                "user": "Here is a long text to fill context: context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context context ",
+                "agent_response": "It seems you've provided a long text filled with the word \"context\" without any specific question or additional information. How can I assist you further? If you have a specific query or topic in mind, feel free to share!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n",
+                "retrieved_episodes": [
+                    "{'content': \"Episode 1:\\n  - task: User shared their favorite programming language.\\n  - outcome: User's preference for Python was noted.\\n  - learnings: User has an interest in programming, specifically in Python.\\nEpisode 2:\\n  - task: Write a simple 'Hello, World!' program\\n  - outcome: Provided a Python code snippet that displays 'Hello, World!'\\n  - learnings: User is interested in programming or learning Python.\\nEpisode 3:\\n  - task: Write a simple 'Hello, World!' program\\n  - outcome: Successfully provided a Python code snippet for the user.\\n  - learnings: The user is interested in programming and may need assistance with coding tasks.\\nEpisode 4:\\n  - task: Inquire about favorite programming language\\n  - outcome: User confirmed their favorite programming language is Python.\\n  - learnings: User has a preference for Python as their programming language.\\nEpisode 5:\\n  - task: Inquire about favorite programming language\\n  - outcome: User confirmed their favorite programming language is Python.\\n  - learnings: User has a preference for Python as their programming language.\\n\"}"
+                ],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            },
+            {
+                "user": "Who are you and what is your purpose?",
+                "agent_response": "I am an AI assistant designed to help you with a variety of tasks and answer your questions to the best of my ability. My purpose is to provide information, support, and guidance based on the context you provide. Whether you need help with a specific topic, advice, or general knowledge, I’m here to assist you! How can I help you today?",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 7,
+        "scenario_name": "Episodic - Project details",
+        "turns": [
+            {
+                "user": "We finished setting up the Redis database successfully.",
+                "agent_response": "That's great to hear! Setting up a Redis database can be quite an achievement. Do you have any plans for how you’ll be using it, or do you need any assistance with next steps?",
+                "current_profile": "",
+                "retrieved_episodes": [
+                    "{'content': \"Episode 1:\\n  - task: Inquire about favorite programming language\\n  - outcome: User confirmed their favorite programming language is Python.\\n  - learnings: User has a preference for Python as their programming language.\\nEpisode 2:\\n  - task: Inquire about favorite programming language\\n  - outcome: User confirmed their favorite programming language is Python.\\n  - learnings: User has a preference for Python as their programming language.\\nEpisode 3:\\n  - task: User provided a long text for context but did not specify a question or request.\\n  - outcome: AI prompted the user to clarify their needs for assistance.\\n  - learnings: Users may sometimes provide excessive context without a clear question, indicating a need for better guidance on how to structure their inquiries.\\nEpisode 4:\\n  - task: User provided a long text filled with repetitive content.\\n  - outcome: AI requested clarification or a specific question to assist the user.\\n  - learnings: The user may need guidance on how to formulate questions or provide context for better assistance.\\nEpisode 5:\\n  - task: User inquired about the AI's identity and purpose.\\n  - outcome: User received a clear explanation of the AI's role and capabilities.\\n  - learnings: User is seeking to understand the AI's functions and how it can assist them.\\n\"}"
+                ],
+                "semantic_hits": []
+            },
+            {
+                "user": "What database did we setup?",
+                "agent_response": "You set up a Redis database successfully. If you have any specific questions or need assistance with using it, feel free to ask!",
+                "current_profile": "",
+                "retrieved_episodes": [
+                    "{'content': \"Episode 1:\\n  - task: User provided a long text for context but did not specify a question or request.\\n  - outcome: AI prompted the user to clarify their needs for assistance.\\n  - learnings: Users may sometimes provide excessive context without a clear question, indicating a need for better guidance on how to structure their inquiries.\\nEpisode 2:\\n  - task: User provided a long text filled with repetitive content.\\n  - outcome: AI requested clarification or a specific question to assist the user.\\n  - learnings: The user may need guidance on how to formulate questions or provide context for better assistance.\\nEpisode 3:\\n  - task: User inquired about the AI's identity and purpose.\\n  - outcome: User received a clear explanation of the AI's role and capabilities.\\n  - learnings: User is seeking to understand the AI's functions and how it can assist them.\\nEpisode 4:\\n  - task: Setting up a Redis database\\n  - outcome: Successfully completed the setup\\n  - learnings: User is capable of completing technical tasks related to database setup.\\nEpisode 5:\\n  - task: Setting up a Redis database\\n  - outcome: Successfully completed the setup\\n  - learnings: User is capable of completing technical tasks related to database setup.\\n\"}"
+                ],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 8,
+        "scenario_name": "Semantic - Redis Docker",
+        "turns": [
+            {
+                "user": "What is the docker service name for Redis?",
+                "agent_response": "The docker service name for Redis is 'redis'.",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- The docker service name for Redis is 'redis'.\n- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n"
+                ]
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 9,
+        "scenario_name": "Multi-turn context (Short-term)",
+        "turns": [
+            {
+                "user": "I have two dogs.",
+                "agent_response": "I see you have two dogs, one black and one white. If there's anything specific you'd like to share or discuss about them, feel free to let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: One black, one white\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: Two dogs, one black and one white\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n- database: Redis\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "One is black and one is white.",
+                "agent_response": "Got it! You have two dogs: one black and one white. If you want to share more about them or have any questions, feel free to let me know!",
+                "current_profile": "",
+                "retrieved_episodes": [],
+                "semantic_hits": [
+                    "- Lab 17 requires 4 types of memory: Short-term, Long-term, Episodic, and Semantic.\n- The docker service name for Redis is 'redis'.\n"
+                ]
+            },
+            {
+                "user": "How many dogs do I have?",
+                "agent_response": "You have two dogs: one black and one white. If you'd like to share more about them or have any questions, just let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: two\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: two dogs\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n- database: Redis\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    },
+    {
+        "scenario_id": 10,
+        "scenario_name": "Complex identity update",
+        "turns": [
+            {
+                "user": "I work as a software engineer.",
+                "agent_response": "It looks like you updated your job title to \"software engineer.\" I’ll remember that you work as a software engineer now. If there's anything else you'd like to share or update, just let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: two\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: two dogs\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n- database: Redis\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "Actually, I just got promoted to AI Architect.",
+                "agent_response": "Got it! I’ll update your job title to AI Architect. Congratulations on your promotion! If there’s anything else you’d like to share or discuss, feel free to let me know!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: two\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: software engineer\n- knowledge_area: Redis\n- pets: two dogs\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n- database: Redis\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            },
+            {
+                "user": "What is my current job title?",
+                "agent_response": "Your current job title is AI Architect. If you have any other questions or need further assistance, feel free to ask!",
+                "current_profile": "- name: Linh\n- interests: ['playing piano']\n- allergy: soy\n- favorite_programming_language: Python\n- knowledge_level: Intermediate\n- number_of_dogs: 2\n- dogs: two\n- dog_colors: ['black', 'white']\n- occupation: AI Architect\n- job_title: AI Architect\n- knowledge_area: Redis\n- pets: two dogs\n- interest: learning about AI\n- profession: AI Architect\n- hobby: playing piano\n- database: Redis\n",
+                "retrieved_episodes": [],
+                "semantic_hits": []
+            }
+        ],
+        "final_status": "Pass"
+    }
+]
