@@ -3,9 +3,8 @@
 Dự án này triển khai một AI Agent có khả năng quản lý bộ nhớ đa tầng (Multi-Memory Stack) sử dụng framework LangGraph. Hệ thống được thiết kế để cá nhân hóa phản hồi dựa trên lịch sử hội thoại, sở thích và kinh nghiệm của người dùng.
 
 ## 🎓 Thông tin sinh viên
-- **Họ và tên:** Đậu Văn Nam
-- **MSSV:** 2A202600033
-- **Khóa học:** Track 3 - Advanced Agentic Coding
+- **Họ và tên:** Nguyễn Đức Cường
+- **MSSV:** 2A202600147
 
 ## 🚀 Tính năng chính
 - **Short-term Memory:** Quản lý context hội thoại tức thời qua buffer list.
