@@ -1,53 +1,50 @@
-# Multi-Memory Agent với LangGraph (Lab 17)
+# Lab #17: Build Multi-Memory Agent với LangGraph
 
-Dự án này xây dựng một Agent thông minh có hệ thống bộ nhớ đa tầng (Multi-Memory System) sử dụng bộ khung của LangGraph. Hệ thống đáp ứng đầy đủ các tiêu chí để đạt 100/100 điểm theo yêu cầu của bài Lab, bao gồm cả việc xử lý xung đột bộ nhớ, quản lý context window bằng cách cắt bớt (trimming), và đánh giá dựa trên 10 kịch bản hội thoại phức tạp.
+Dự án này triển khai một AI Agent có khả năng quản lý bộ nhớ đa tầng (Multi-Memory Stack) sử dụng framework LangGraph. Hệ thống được thiết kế để cá nhân hóa phản hồi dựa trên lịch sử hội thoại, sở thích và kinh nghiệm của người dùng.
 
-## 1. Cấu trúc Hệ thống Bộ nhớ (Memory Stack)
+## 🎓 Thông tin sinh viên
+- **Họ và tên:** Đậu Văn Nam
+- **MSSV:** 2A202600033
+- **Khóa học:** Track 3 - Advanced Agentic Coding
 
-Hệ thống triển khai 4 Memory Backend riêng biệt:
-1. **Short-term Memory**: Sử dụng một danh sách (list buffer) lưu lại các lược sử trò chuyện gần nhất giữa người dùng và Agent trong một phiên.
-2. **Long-term Memory (Redis)**: Sử dụng Redis để lưu trữ **User Profile** (thông tin cá nhân, sở thích, sự thật về người dùng). Có khả năng cập nhật ghi đè khi thông tin thay đổi.
-3. **Episodic Memory (JSON Log)**: Lưu trữ các trải nghiệm, bài học rút ra sau các task thành các file JSON (`data/episodes.json`).
-4. **Semantic Memory (ChromaDB)**: Một Vector Database (ChromaDB) lưu trữ kiến thức ngữ nghĩa chung, FAQ. Dùng để Agent truy xuất kiến thức ngoài ngữ cảnh.
+## 🚀 Tính năng chính
+- **Short-term Memory:** Quản lý context hội thoại tức thời qua buffer list.
+- **Long-term Profile (Redis):** Lưu trữ thông tin cá nhân bền vững (Sở thích, dị ứng, kỹ năng) với cơ chế tự động xử lý mâu thuẫn (Conflict Handling).
+- **Episodic Memory (JSON):** Lưu trữ các sự kiện quan trọng và kinh nghiệm quá khứ để Agent rút kinh nghiệm.
+- **Semantic Memory (ChromaDB):** Tìm kiếm ngữ nghĩa dựa trên Vector Embeddings (OpenAI API) để truy xuất các đoạn kiến thức liên quan.
+- **Memory Router:** Tự động quyết định loại bộ nhớ cần truy xuất dựa trên ý định (intent) của người dùng.
+- **Auto-trimming:** Cơ chế cắt bớt context theo thứ tự ưu tiên.
 
-## 2. Router & State Management
+## 🛠 Hướng dẫn cài đặt & Chạy
+### 1. Khởi tạo môi trường
+```bash
+# Tạo môi trường ảo
+python3 -m venv venv
+source venv/bin/activate
 
-- Hệ thống định nghĩa `MemoryState` bằng TypedDict của Python (`src/agent/state.py`).
-- Agent sở hữu `MemoryRouter` tự động phân loại intent truy vấn bằng LLM, từ đó chỉ bốc xuất những bộ nhớ cần thiết đưa vào Prompt (tránh bơm thừa thông tin gây nhiễu).
+# Cài đặt thư viện
+pip install -r requirements.txt
+```
 
-## 3. Cơ chế Quản lý Context Window (Trimming / Priority-based Eviction)
+### 2. Chạy hạ tầng (Docker)
+```bash
+docker compose up -d
+```
 
-Việc nhồi nhét quá nhiều bộ nhớ có thể gây tràn Token Budget hoặc làm Agent bị rối (Hallucination). Dự án áp dụng kỹ thuật Auto-trim, cắt bớt (eviction) theo **thứ tự ưu tiên (4 cấp độ)**:
+### 3. Cấu hình biến môi trường
+Tạo file `.env` (xem `.env.example`) và điền `OPENAI_API_KEY` của bạn:
+```env
+OPENAI_API_KEY=your_key_here
+OPENAI_MODEL=gpt-4o-mini
+REDIS_URL=redis://localhost:6379/0
+CHROMA_URL=http://localhost:8000
+```
 
-1. **Level 1 (Highest) - System Prompt & User Profile**: Không bao giờ bị cắt. Đây là nhân dạng của Agent và cốt lõi của người dùng.
-2. **Level 2 - Trải nghiệm cũ (Episodic) & Kiến thức (Semantic)**: Chỉ lấy những thông tin liên quan nhất (top k) được router chọn.
-3. **Level 3 - Short-term History**: Các tin nhắn trò chuyện gần đây. 
-4. **Level 4 (Lowest) - Tin nhắn quá cũ trong Short-term**: Nếu tổng token (Level 1 + 2 + 3) lớn hơn ngân sách (`memory_budget` - ví dụ 1500 tokens), **hệ thống sẽ tự động bắt đầu cắt (pop) các tin nhắn cũ nhất từ Short-term history** cho đến khi số token nằm trong giới hạn an toàn.
+### 4. Chạy ứng dụng
+- **Chạy Demo tương tác:** `python main.py`
+- **Chạy Benchmark:** `python generate_benchmark.py`
 
-## 4. Cách thức chạy dự án
-
-1. **Khởi động Docker Services** (Redis và ChromaDB):
-   ```bash
-   docker compose up -d
-   ```
-2. **Cài đặt môi trường Python**:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
-3. **Thiết lập `.env`**:
-   Đảm bảo bạn đã cấu hình trong file `.env`:
-   - `OPENAI_API_KEY`: Key của bạn.
-   - `OPENAI_MODEL`: Mặc định là `gpt-4o-mini`.
-4. **Chạy Benchmark**:
-   ```bash
-   python generate_benchmark.py
-   ```
-   - Kết quả tổng hợp: `BENCHMARK.md`.
-   - Kết quả chi tiết từng lượt chat (đối chiếu): `logs/benchmark_details.json`.
-
-
-## 5. Báo cáo Benchmark
-
-Mời bạn đọc file `BENCHMARK.md` để xem kết quả chi tiết của 10 kịch bản multi-turn, so sánh sự thông minh và hiểu ngữ cảnh vượt trội của Agent có Multi-Memory so với Agent không có bộ nhớ.
+## 📊 Hệ thống Benchmark
+Sau khi chạy `generate_benchmark.py`, hệ thống sẽ xuất ra 2 tệp quan trọng:
+1. **`BENCHMARK.md`**: Bảng so sánh hiệu quả giữa Agent có Memory và No-Memory trên 10 kịch bản hội thoại đa tầng (multi-turn). Bao gồm phần phân tích rủi ro bảo mật và giới hạn kỹ thuật.
+2. **`logs/benchmark_details.json`**: Nhật ký chi tiết từng lượt hội thoại, bao gồm cả dữ liệu bộ nhớ được truy xuất để đối chiếu kết quả.
